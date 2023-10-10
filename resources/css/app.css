@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center rounded-md px-4 py-2 text-sm font-semibold uppercase tracking-widest transition duration-100 ease-in-out focus:outline-none focus:ring-1 focus:ring-offset-2;
+    }
+    .btn-xs {
+        @apply text-xs px-4 py-1;
+    }
+    .btn-primary {
+        @apply bg-gradient-to-tr from-orange-300 to-red-400 text-white hover:to-red-500 focus:ring-primary-500;
+    }
+    .btn-edit {
+        @apply rounded-full border-b-2 border-r-2 border-secondary-300 text-secondary-500 bg-gradient-to-br from-secondary-200 to-35% to-transparent hover:bg-secondary-50 hover:border-secondary-500 hover:text-secondary-600;
+    }
+    .btn-delete {
+        @apply rounded-full border-b-2 border-r-2 border-red-300 text-red-400 hover:bg-red-50 hover:border-red-500 hover:text-red-600 bg-gradient-to-br from-red-200 to-35% to-transparent;
+    }
+    .btn-cancel {
+        @apply border-b-2 border-r-2 border-neutral-300 text-neutral-400 hover:bg-neutral-100 hover:border-neutral-500 hover:text-neutral-600 bg-gradient-to-br from-neutral-200 to-35% to-transparent;
+    }
+}
