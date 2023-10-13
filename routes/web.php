@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,11 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('product', ProductController::class)->except(['create']);
-
-    Route::controller(DropzoneController::class)->group(function(){
-        Route::post('dropzone/store', 'store')->name('dropzone.store');
-    });
+    Route::resource('product', ProductController::class)->except(['create', 'show']);
 });
 
 require __DIR__ . '/auth.php';
