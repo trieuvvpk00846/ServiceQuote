@@ -6,6 +6,7 @@
             break;
         case 'product-updated':
             $message = 'Sửa thành công!';
+            break;
         default:
             break;
     }

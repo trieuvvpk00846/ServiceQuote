@@ -2,7 +2,7 @@
     @csrf
     @method('patch')
     <div>
-        <x-input-label for="name" :value="__('Tên sản phẩm / phụ tùng')" />
+        <x-input-label for="name" class="after:ml-0.5 after:text-red-500 after:content-['*']" :value="__('Tên sản phẩm / phụ tùng')" />
         <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" maxlength="155" :value="old('name', $product->name)" required autofocus autocomplete="name" />
         <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
@@ -29,7 +29,7 @@
         <x-input-error class="mt-2" :messages="$errors->get('images')" />
     </div>
     <div class="space-x-2">
-        <button class="btn btn-cancel"><a href="/product">Huỷ</a></button>
+        <a href="/product" class="btn btn-cancel">Huỷ</a>
         <button class="btn btn-primary" type="submit">{{ __('Lưu') }}</button>
     </div>
 </form>
