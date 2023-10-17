@@ -23,7 +23,7 @@
     </x-slot>
     <div class="py-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-            <div class="flex flex-row space-x-4">
+            <div class="flex flex-row gap-4">
                 <div class="basis-1/3 px-2">
                     <div class="overflow-hidden bg-white p-6 shadow-sm sm:rounded-lg">
                         @if (request()->routeIs('product.index'))
@@ -40,8 +40,10 @@
                         <x-notification-message :status="session('status')"></x-notification-message>
                     </div>
                 </div>
-                <div class="basis-2/3 space-y-4">
-                    <x-product-list></x-product-list>
+                <div class="basis-2/3">
+                    <div class="flex flex-col gap-4">
+                        <x-product-list></x-product-list>
+                    </div>
                 </div>
             </div>
         </div>

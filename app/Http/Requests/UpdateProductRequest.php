@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\File;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -35,8 +34,8 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => ['required', 'max:155'],
             'price' => ['required', 'integer', 'min:0', 'max:999999999'],
-            'unit' => ['alpha', 'max:20'],
-            'images' => [File::image()->max('12mb')],
+            'unit' => ['nullable', 'alpha_num', 'max:20'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:12000'],
         ];
     }
 
@@ -55,12 +54,11 @@ class UpdateProductRequest extends FormRequest
             'price.min' => 'Giá bán không hợp lệ!',
             'price.max' => 'Giá bán vượt quá giới hạn!',
 
-            'unit.alpha' => 'Đơn vị phải là kiểu chữ!',
+            'unit.alpha_num' => 'Nhập chữ hoặc số!',
             'unit.max' => 'Đơn vị quá dài!',
 
-            'images' => 'Hình ảnh không đúng định dạng!',
-            // 'images.type' => 'Không đúng định dạng file!',
-            // 'images.max' => 'Kích thước hình ảnh quá lớn!',
+            'image.mimes' => 'Không đúng định dạng file!',
+            'image.max' => 'Kích thước hình ảnh quá lớn!',
         ];
     }
 }

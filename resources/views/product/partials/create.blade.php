@@ -12,30 +12,15 @@
     </div>
     <div>
         <x-input-label for="unit" :value="__('Đơn vị tính')" />
-        <x-text-input id="unit" name="unit" type="text" class="mt-1 block w-full" :value="old('unit')" maxlength="20" autofocus autocomplete="unit" />
+        <x-text-input id="unit" name="unit" type="text" class="mt-1 block w-full" :value="old('unit')" maxlength="20" autocomplete="unit" />
         <x-input-error class="mt-2" :messages="$errors->get('unit')" />
     </div>
     <div>
-        <x-input-label for="images" :value="__('Chọn hình ảnh')" />
-        <x-product-images-input></x-product-images-input>
-        <x-input-error class="mt-2" :messages="$errors->get('images')" />
+        <x-input-label :value="__('Chọn hình ảnh')" />
+        <x-product-image-input :image="null" :value="old('image')" autocomplete="image"></x-product-image-input>
+        <x-input-error class="mt-2" :messages="$errors->get('image')" />
     </div>
     <div class="flex flex-row space-x-2">
         <button class="btn btn-primary" type="submit">{{ __('Lưu') }}</button>
     </div>
 </form>
-<script>
-    function previewImage() {
-        var input = document.getElementById('images');
-        var preview = document.getElementById('preview');
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            // preview.style.dis
-        }
-
-        reader.readAsDataURL(file);
-    }
-</script>

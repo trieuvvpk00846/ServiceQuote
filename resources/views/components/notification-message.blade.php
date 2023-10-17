@@ -7,6 +7,9 @@
         case 'product-updated':
             $message = 'Sửa thành công!';
             break;
+        case 'product-deleted':
+            $message = 'Xoá thành công!';
+            break;
         default:
             break;
     }

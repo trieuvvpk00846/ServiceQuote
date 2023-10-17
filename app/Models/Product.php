@@ -17,7 +17,7 @@ class Product extends Model
         'price',
     ];
 
-    public function images(): HasOne
+    public function image(): HasOne
     {
         return $this->hasOne(Image::class);
     }

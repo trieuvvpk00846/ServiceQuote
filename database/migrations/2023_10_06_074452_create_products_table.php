@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name', 155);
-            $table->string('unit', 20);
+            $table->string('unit', 20)->nullable();
             $table->unsignedBigInteger('price')->default(0);
             $table->timestamps();
         });

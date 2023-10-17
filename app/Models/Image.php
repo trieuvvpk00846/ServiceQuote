@@ -13,7 +13,7 @@ class Image extends Model
 
     protected $fillable = ["name", "extension", "product_id"];
 
-    protected $visible = ["product_images"];
+    protected $visible = ["product_image"];
 
     protected $touches = ['product'];
 
@@ -25,7 +25,7 @@ class Image extends Model
         return $this->belongsTo(Product::class);
     }
 
-    protected function productImages(): Attribute
+    protected function productImage(): Attribute
     {
         return Attribute::make(
             get: fn ($value, $attributes) => "/products/images/".$attributes['name'],

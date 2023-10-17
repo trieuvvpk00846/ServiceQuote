@@ -31,8 +31,8 @@ class ProductController extends Controller
             'unit' => $request->unit
         ]);
 
-        if ($request->hasFile('images')) {
-            $file = $request->file('images');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
 
             $path = $file?->store('products/images', 'public');
             if ($path) {
@@ -68,14 +68,14 @@ class ProductController extends Controller
             'unit' => $request->unit
         ]);
 
-        if ($request->hasFile('images')) {
-            $file = $request->file('images');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
             $path = $file?->store('products/images', 'public');
 
             if ($path) {
-                if ($product->images) {
-                    Storage::disk('public')->delete($product->images->product_images);
-                    $product->images->update([
+                if ($product->image) {
+                    Storage::disk('public')->delete($product->image->product_image);
+                    $product->image->update([
                         'name' => $file->hashName(),
                         'extension' => $file->extension(),
                     ]);
@@ -87,6 +87,11 @@ class ProductController extends Controller
                     ]);
                 }
             }
+        } else if ($request->removeImageFlg) {
+            if ($product->image) {
+                Storage::disk('public')->delete($product->image->product_image);
+                $product->image()->delete();
+            }
         }
         return redirect(RouteServiceProvider::PRODUCT)->with('status', 'product-updated');
     }
@@ -96,10 +101,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->images) {
-            Storage::disk('public')->delete($product->images->product_images);
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image->product_image);
+            $product->image()->delete();
         }
         Product::destroy($product->id);
-        return redirect(RouteServiceProvider::PRODUCT);
+        return redirect(RouteServiceProvider::PRODUCT)->with('status', 'product-deleted');
     }
 }
