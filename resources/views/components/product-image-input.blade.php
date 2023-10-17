@@ -10,7 +10,7 @@
     </button>
     <input type="checkbox" name="removeImageFlg" id="removeImageFlg" class="sr-only">
     <input type="file"
-        class="block w-full text-sm text-slate-500 file:mr-4 file:rounded-lg file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100"
+        class="block w-full text-sm text-slate-500 file:mr-4 file:rounded-lg file:border-0 file:bg-orange-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-orange-700 hover:file:bg-orange-100"
         name="image" id="image" accept="image/*" onchange="previewImage(this)" :value="old('image')" />
 </label>
 <script>

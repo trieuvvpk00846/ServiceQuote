@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex h-full flex-row items-end justify-between">
                     <div>
-                        <p class="text-sm text-gray-400">Ngày nhập: {{ $item->created_at }}</p>
+                        <p class="text-sm text-gray-400">Cập nhập: {{ $item->updated_at }}</p>
                     </div>
                     <div class="flex flex-row gap-2">
                         <form action="{{ route('product.edit', $item->id) }}" method="GET">

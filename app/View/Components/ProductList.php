@@ -22,7 +22,7 @@ class ProductList extends Component
      */
     public function render(): View|Closure|string
     {
-        $products = Product::latest()->get();
+        $products = Product::latest('updated_at')->get();
         return view('components.product-list', compact('products'));
     }
 }
