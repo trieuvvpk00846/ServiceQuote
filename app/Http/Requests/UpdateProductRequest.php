@@ -34,7 +34,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => ['required', 'max:155'],
             'price' => ['required', 'integer', 'min:0', 'max:999999999'],
-            'unit' => ['nullable', 'alpha_num', 'max:20'],
+            'unit' => ['nullable', 'max:20'],
             'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:12000'],
         ];
     }
@@ -54,7 +54,6 @@ class UpdateProductRequest extends FormRequest
             'price.min' => 'Giá bán không hợp lệ!',
             'price.max' => 'Giá bán vượt quá giới hạn!',
 
-            'unit.alpha_num' => 'Nhập chữ hoặc số!',
             'unit.max' => 'Đơn vị quá dài!',
 
             'image.mimes' => 'Không đúng định dạng file!',

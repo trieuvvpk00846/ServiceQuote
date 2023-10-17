@@ -14,7 +14,6 @@ class ProductList extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -22,7 +21,7 @@ class ProductList extends Component
      */
     public function render(): View|Closure|string
     {
-        $products = Product::latest('updated_at')->get();
+        $products = Product::latest('updated_at')->paginate(10);
         return view('components.product-list', compact('products'));
     }
 }
