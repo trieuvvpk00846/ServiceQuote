@@ -8,15 +8,18 @@
             </div>
             <div class="w-1/3">
                 <label class="relative block w-full">
-                    <span class="sr-only">Tìm kiếm</span>
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                        </svg>
-                    </span>
-                    <input
-                        class="w-full rounded-full border border-slate-300 bg-white py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 sm:text-base"
-                        placeholder="Tìm kiếm..." type="text" name="search" />
+                    <form action="{{ route('product.search') }}" method="GET">
+                        @csrf
+
+                        <button type="submit" class="pointer-events-auto absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                        </button>
+                        <input
+                            class="w-full rounded-full border border-slate-300 bg-white py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-primary-300 focus:outline-none focus:ring-1 focus:ring-primary-300 sm:text-base"
+                            placeholder="Tìm kiếm..." type="text" name="search" />
+                    </form>
                 </label>
             </div>
         </div>
@@ -41,9 +44,7 @@
                     </div>
                 </div>
                 <div class="basis-2/3">
-                    <div class="flex flex-col gap-4">
-                        <x-product-list></x-product-list>
-                    </div>
+                    <x-product-list></x-product-list>
                 </div>
             </div>
         </div>

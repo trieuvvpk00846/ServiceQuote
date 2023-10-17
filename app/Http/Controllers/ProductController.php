@@ -7,7 +7,9 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Image;
 use App\Models\Product;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -107,5 +109,11 @@ class ProductController extends Controller
         }
         Product::destroy($product->id);
         return redirect(RouteServiceProvider::PRODUCT)->with('status', 'product-deleted');
+    }
+
+    public function search(Request $request) {
+        $products = Product::where('name', 'like', '%'.$request->search.'%')->paginate(10);
+        // dd($products);
+        return redirect('product.index', compact('products'));
     }
 }

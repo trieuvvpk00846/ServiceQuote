@@ -109,6 +109,7 @@ return [
     |
     */
 
+    // 'faker_locale' => 'vi_VN',
     'faker_locale' => 'en_US',
 
     /*

@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use function Laravel\Prompts\search;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('product', ProductController::class)->except(['create', 'show']);
+    Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 });
 
 require __DIR__ . '/auth.php';
